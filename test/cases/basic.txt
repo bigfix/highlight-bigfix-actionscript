@@ -1,0 +1,82 @@
+copy
+move
+folder create
+folder delete
+regset64
+regdelete64
+script64
+regset
+regdelete
+fixlet delete
+pause while
+enable gathering
+fixlet close
+fixlet restore
+browse to
+dos
+runhidden
+waithidden
+rundetached
+waitdetached
+run
+wait
+override
+script
+open
+download now as
+download as
+download open
+download now
+download
+appendfile
+unsubscribe
+site force evaluation
+site gather schedule publisher
+site gather schedule manual
+site gather schedule disable
+site gather schedule seconds
+continue if
+set clock
+restart
+shutdown
+action lock until
+action lock indefinite
+action log command
+action log all
+action unlock
+action requires restart
+action may require restart
+action requires login
+action parameter query
+setting delete
+setting
+administrator add
+administrator delete
+administrative rights enable
+administrative rights disable
+subscribe
+relay select
+archive now
+extract
+utility
+if
+elseif
+else
+endif
+parameter
+createfile until
+prefetch
+custom site subscribe
+custom site unsubscribe
+action uses wow64 redirection
+action launch preference low-priority
+action launch preference normal-priority
+notify client
+client restart
+begin prefetch block
+add nohash prefetch item
+add prefetch item
+collect prefetch items
+execute prefetch plug-in
+end prefetch block
+exit

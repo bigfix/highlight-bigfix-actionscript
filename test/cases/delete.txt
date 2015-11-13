@@ -1,1 +1,0 @@
-delete C:\hodor.txt

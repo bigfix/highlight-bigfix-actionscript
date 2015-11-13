@@ -1,1 +1,0 @@
-<span class="bf-command">delete</span> C:\hodor.txt
