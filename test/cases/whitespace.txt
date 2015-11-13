@@ -1,0 +1,4 @@
+ delete foo
+deletefoo
+	deletefoo
+  	  delete foo
