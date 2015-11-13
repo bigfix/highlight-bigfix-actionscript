@@ -1,0 +1,35 @@
+{
+  "name": "highlight-bigfix-actionscript",
+  "version": "1.0.0",
+  "description": "Make syntax highlighted BigFix ActionScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js",
+    "coverage": "istanbul cover tape test/*.js",
+    "travis": "istanbul cover tape test/*.js && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigfix/highlight-bigfix-actionscript.git"
+  },
+  "keywords": [
+    "bigfix",
+    "actionscript",
+    "highlight",
+    "colorize"
+  ],
+  "author": "BigFix",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bigfix/highlight-bigfix-actionscript/issues"
+  },
+  "homepage": "https://github.com/bigfix/highlight-bigfix-actionscript#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3"
+  }
+}
