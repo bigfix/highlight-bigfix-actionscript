@@ -1,6 +1,6 @@
-<span class="bf-command">download</span> {<span class="bf-relevance"><span class="hljs-string">"hello"</span></span>}hi
-<span class="bf-command">download</span> {{&quot;hello&quot;}hi
-<span class="bf-command">download</span> {<span class="bf-relevance"><span class="hljs-string">"hel}}lo"</span></span>}hi
-<span class="bf-command">download</span> {
-<span class="bf-command">download</span> {<span class="bf-relevance"><span class="hljs-number">1</span></span>
-<span class="bf-command">download</span> {<span class="bf-relevance"><span class="hljs-number">1</span></span>}
+<span class="bf-actionscript-command">download</span> {<span class="bf-actionscript-substitution"><span class="hljs-string">"hello"</span></span>}hi
+<span class="bf-actionscript-command">download</span> {{&quot;hello&quot;}hi
+<span class="bf-actionscript-command">download</span> {<span class="bf-actionscript-substitution"><span class="hljs-string">"hel}}lo"</span></span>}hi
+<span class="bf-actionscript-command">download</span> {
+<span class="bf-actionscript-command">download</span> {<span class="bf-actionscript-substitution"><span class="hljs-number">1</span></span>
+<span class="bf-actionscript-command">download</span> {<span class="bf-actionscript-substitution"><span class="hljs-number">1</span></span>}

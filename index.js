@@ -185,14 +185,18 @@ module.exports = function(script) {
 
   function addCommand(command) {
     var text = script.substring(pos, pos + command.length);
-    result += '<span class="bf-command">' + escapeHtml(text) + '</span>';
+    result += '<span class="bf-actionscript-command">';
+    result += escapeHtml(text);
+    result += '</span>';
     pos += command.length;
   }
 
   function addComment() {
     var newline = findNewline();
     var text = script.substring(pos, newline);
-    result += '<span class="bf-comment">' + escapeHtml(text) + '</span>';
+    result += '<span class="bf-actionscript-comment">';
+    result += escapeHtml(text);
+    result += '</span>';
     pos = newline;
   }
 
@@ -229,7 +233,7 @@ module.exports = function(script) {
       add(text.substring(end, start));
       end = findSubstitutionEnd(text, start);
 
-      result += '<span class="bf-relevance">';
+      result += '<span class="bf-actionscript-substitution">';
       result += highlightRelevance(text.substring(start, end));
       result += '</span>';
 

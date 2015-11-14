@@ -1,1 +1,1 @@
-<span class="bf-command">dos</span> foo &gt; bar
+<span class="bf-actionscript-command">dos</span> foo &gt; bar

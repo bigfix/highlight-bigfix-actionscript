@@ -1,4 +1,4 @@
- <span class="bf-command">delete</span> foo
-<span class="bf-command">delete</span>foo
-	<span class="bf-command">delete</span>foo
-  	  <span class="bf-command">delete</span> foo
+ <span class="bf-actionscript-command">delete</span> foo
+<span class="bf-actionscript-command">delete</span>foo
+	<span class="bf-actionscript-command">delete</span>foo
+  	  <span class="bf-actionscript-command">delete</span> foo
