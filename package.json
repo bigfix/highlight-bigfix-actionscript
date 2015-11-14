@@ -30,6 +30,8 @@
     "tape": "^4.2.2"
   },
   "dependencies": {
-    "escape-html": "^1.0.3"
+    "escape-html": "^1.0.3",
+    "highlight.js": "^8.9.1",
+    "hljs-bigfix-relevance": "^1.0.0"
   }
 }

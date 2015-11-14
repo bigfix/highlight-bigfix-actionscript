@@ -1,6 +1,57 @@
 'use strict';
 
-var escapeHtml = require('escape-html');
+var escapeHtml = require('escape-html'),
+  hljs = require('highlight.js');
+
+hljs.registerLanguage('bigfix-relevance', require('hljs-bigfix-relevance'));
+
+function highlightRelevance(relevance) {
+  return hljs.highlight('bigfix-relevance', relevance).value;
+}
+
+function findSubstitutionStart(text, pos) {
+  var c;
+
+  while (pos !== text.length) {
+    c = text.charCodeAt(pos);
+    pos++;
+
+    if (c === 0x7b) {
+      if (pos !== text.length) {
+        if (text.charCodeAt(pos) !== 0x7b) {
+          return pos;
+        }
+
+        pos++;
+      }
+    }
+  }
+
+  return text.length;
+}
+
+function findSubstitutionEnd(text, pos) {
+  var c;
+
+  while (pos !== text.length) {
+    c = text.charCodeAt(pos);
+    pos++;
+
+    if (c === 0x7d) {
+      if (pos === text.length) {
+        return pos - 1;
+      }
+
+      if (text.charCodeAt(pos) !== 0x7d) {
+        return pos - 1;
+      }
+
+      pos++;
+    }
+  }
+
+  return text.length;
+}
 
 function isWhiteSpace(c) {
   return (c === 0x20) || // space
@@ -157,13 +208,25 @@ module.exports = function(script) {
     }
   }
 
-  function skipToNextLine() {
+  function substituteRelevance() {
     var newline = findNewline();
+    var text = script.substring(pos, newline);
 
-    if (pos !== newline) {
-      add(script.substring(pos, newline));
+    var end = 0;
+    var start = findSubstitutionStart(text, end);
+
+    while (start !== text.length) {
+      add(text.substring(end, start));
+      end = findSubstitutionEnd(text, start);
+
+      result += '<span class="bf-relevance">';
+      result += highlightRelevance(text.substring(start, end));
+      result += '</span>';
+
+      start = findSubstitutionStart(text, end);
     }
 
+    add(text.substring(end, start));
     pos = newline;
   }
 
@@ -176,9 +239,8 @@ module.exports = function(script) {
       addComment();
     } else if (command !== undefined) {
       addCommand(command);
+      substituteRelevance();
     }
-
-    skipToNextLine();
   }
 
   return result;
