@@ -1,0 +1,6 @@
+<span class="bf-actionscript-command">wait</span> 1
+<span class="bf-actionscript-command">createfile until</span> END
+wait 1
+{<span class="bf-actionscript-substitution"><span class="hljs-number">1</span></span>}
+END
+<span class="bf-actionscript-command">wait</span> 1

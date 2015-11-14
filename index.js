@@ -220,6 +220,25 @@ module.exports = function(script) {
     pos = newline;
   }
 
+  function skipCreateFile() {
+    var newline = findNewline();
+    var delimiter = script.substring(pos, newline);
+
+    add(delimiter);
+    delimiter = delimiter.trim();
+
+    var end = script.indexOf(delimiter, newline);
+    if (end === -1) {
+      end = script.length;
+    }
+
+    pos = newline;
+    while (pos < end) {
+      skipWhiteSpace();
+      substituteRelevance();
+    }
+  }
+
   function substituteRelevance() {
     var newline = findNewline();
     var text = script.substring(pos, newline);
@@ -249,6 +268,9 @@ module.exports = function(script) {
 
     if (command === '//') {
       addComment();
+    } else if (command === 'createfile until') {
+      addCommand(command);
+      skipCreateFile();
     } else if (command !== undefined) {
       addCommand(command);
       substituteRelevance();

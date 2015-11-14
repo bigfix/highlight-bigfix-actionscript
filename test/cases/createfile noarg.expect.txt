@@ -1,0 +1,2 @@
+<span class="bf-actionscript-command">createfile until</span>
+<span class="bf-actionscript-command">wait</span> 1

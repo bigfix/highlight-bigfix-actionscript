@@ -1,0 +1,6 @@
+wait 1
+createfile until END
+wait 1
+{1}
+END
+wait 1
