@@ -4,3 +4,4 @@
 <span class="bf-actionscript-command">download</span> {
 <span class="bf-actionscript-command">download</span> {<span class="bf-actionscript-substitution"><span class="hljs-number">1</span></span>
 <span class="bf-actionscript-command">download</span> {<span class="bf-actionscript-substitution"><span class="hljs-number">1</span></span>}
+<span class="bf-actionscript-command">download</span> {{{<span class="bf-actionscript-substitution"><span class="hljs-number">1</span>}}</span>}
