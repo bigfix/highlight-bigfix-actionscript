@@ -4,7 +4,7 @@
   "description": "Make syntax highlighted BigFix ActionScript",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js",
+    "test": "tape test/*.js | faucet",
     "coverage": "istanbul cover tape test/*.js",
     "travis": "istanbul cover tape test/*.js && cat ./coverage/lcov.info | coveralls"
   },
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/bigfix/highlight-bigfix-actionscript#readme",
   "devDependencies": {
     "coveralls": "^2.11.4",
+    "faucet": "0.0.1",
     "istanbul": "^0.4.0",
     "tape": "^4.2.2"
   },

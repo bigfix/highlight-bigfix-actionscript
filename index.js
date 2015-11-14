@@ -16,14 +16,12 @@ function findSubstitutionStart(text, pos) {
     c = text.charCodeAt(pos);
     pos++;
 
-    if (c === 0x7b) {
-      if (pos !== text.length) {
-        if (text.charCodeAt(pos) !== 0x7b) {
-          return pos;
-        }
-
-        pos++;
+    if (c === 0x7b && pos !== text.length) {
+      if (text.charCodeAt(pos) !== 0x7b) {
+        return pos;
       }
+
+      pos++;
     }
   }
 
