@@ -208,6 +208,16 @@ module.exports = function(script) {
     }
   }
 
+  function skipToNextLine() {
+    var newline = findNewline();
+
+    if (pos !== newline) {
+      add(script.substring(pos, newline));
+    }
+
+    pos = newline;
+  }
+
   function substituteRelevance() {
     var newline = findNewline();
     var text = script.substring(pos, newline);
@@ -240,6 +250,8 @@ module.exports = function(script) {
     } else if (command !== undefined) {
       addCommand(command);
       substituteRelevance();
+    } else {
+      skipToNextLine();
     }
   }
 
