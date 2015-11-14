@@ -101,14 +101,6 @@ module.exports = function(script) {
   var pos = 0;
   var result = '';
 
-  function add(text) {
-    result += escapeHtml(text);
-  }
-
-  function addCommand(text) {
-    result += '<span class="bf-command">' + escapeHtml(text) + '</span>';
-  }
-
   function findCommand() {
     for (var i = 0; i < commands.length; i++) {
       if (script.indexOf(commands[i], pos) === pos) {
@@ -117,6 +109,40 @@ module.exports = function(script) {
     }
 
     return undefined;
+  }
+
+  function findNewline() {
+    var c;
+    var index = pos;
+
+    while (index !== script.length) {
+      c = script.charCodeAt(index);
+
+      if (c === 0x0d || c === 0x0a) {
+        break;
+      }
+
+      index++;
+    }
+
+    return index;
+  }
+
+  function add(text) {
+    result += escapeHtml(text);
+  }
+
+  function addCommand(command) {
+    var text = script.substring(pos, pos + command.length);
+    result += '<span class="bf-command">' + escapeHtml(text) + '</span>';
+    pos += command.length;
+  }
+
+  function addComment() {
+    var newline = findNewline();
+    var text = script.substring(pos, newline);
+    result += '<span class="bf-comment">' + escapeHtml(text) + '</span>';
+    pos = newline;
   }
 
   function skipWhiteSpace() {
@@ -132,22 +158,13 @@ module.exports = function(script) {
   }
 
   function skipToNextLine() {
-    var c;
-    var start = pos;
+    var newline = findNewline();
 
-    while (pos !== script.length) {
-      c = script.charCodeAt(pos);
-
-      if (c === 0x0d || c === 0x0a) {
-        break;
-      }
-
-      pos++;
+    if (pos !== newline) {
+      add(script.substring(pos, newline));
     }
 
-    if (start !== pos) {
-      add(script.substring(start, pos));
-    }
+    pos = newline;
   }
 
   while (pos !== script.length) {
@@ -155,9 +172,10 @@ module.exports = function(script) {
 
     command = findCommand();
 
-    if (command !== undefined) {
-      addCommand(script.substring(pos, pos + command.length));
-      pos += command.length;
+    if (command === '//') {
+      addComment();
+    } else if (command !== undefined) {
+      addCommand(command);
     }
 
     skipToNextLine();

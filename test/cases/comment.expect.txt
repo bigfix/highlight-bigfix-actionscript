@@ -1,0 +1,4 @@
+<span class="bf-comment">// run hodor</span>
+<span class="bf-command">run</span> hodor
+  <span class="bf-comment">//run bran</span>
+<span class="bf-command">run</span> bran
