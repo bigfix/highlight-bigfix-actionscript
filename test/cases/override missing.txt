@@ -1,0 +1,4 @@
+override wait
+completion=job
+hidden=true
+runas=currentuser

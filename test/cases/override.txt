@@ -1,0 +1,5 @@
+override run
+completion=job
+hidden=true
+runas=currentuser
+run arg

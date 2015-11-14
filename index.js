@@ -239,6 +239,35 @@ module.exports = function(script) {
     }
   }
 
+  function skipOverride() {
+    var newline = findNewline();
+    var delimiter = script.substring(pos, newline);
+
+    add(delimiter);
+    delimiter = delimiter.trim();
+
+    pos = newline;
+
+    if (delimiter !== 'run' && delimiter !== 'wait') {
+      return;
+    }
+
+    while (pos !== script.length) {
+      skipWhiteSpace();
+
+      if ((script.indexOf(delimiter, pos) === pos) &&
+          (pos + delimiter.length !== script.length) &&
+          isWhiteSpace(script.charCodeAt(pos + delimiter.length))) {
+
+        addCommand(delimiter);
+        substituteRelevance();
+        break;
+      }
+
+      skipToNextLine();
+    }
+  }
+
   function substituteRelevance() {
     var newline = findNewline();
     var text = script.substring(pos, newline);
@@ -271,6 +300,9 @@ module.exports = function(script) {
     } else if (command === 'createfile until') {
       addCommand(command);
       skipCreateFile();
+    } else if (command === 'override') {
+      addCommand(command);
+      skipOverride();
     } else if (command !== undefined) {
       addCommand(command);
       substituteRelevance();
