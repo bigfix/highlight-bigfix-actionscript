@@ -117,7 +117,7 @@ var commands = [
   'administrator delete',
   'administrative rights enable',
   'administrative rights disable',
-  'subscribex',
+  'subscribe',
   'relay select',
   'archive now',
   'extract',
@@ -309,6 +309,10 @@ module.exports = function(script) {
     } else {
       skipToNextLine();
     }
+  }
+
+  if (false) {
+    console.log('hello');
   }
 
   return result;
