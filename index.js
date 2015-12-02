@@ -311,5 +311,9 @@ module.exports = function(script) {
     }
   }
 
+  if (false) {
+    console.log('hello');
+  }
+
   return result;
 };
