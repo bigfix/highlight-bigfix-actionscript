@@ -117,7 +117,7 @@ var commands = [
   'administrator delete',
   'administrative rights enable',
   'administrative rights disable',
-  'subscribe',
+  'subscribex',
   'relay select',
   'archive now',
   'extract',
