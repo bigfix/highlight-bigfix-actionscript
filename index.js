@@ -121,7 +121,7 @@ var commands = [
   'relay select',
   'archive now',
   'extract',
-  'utility',
+  'utilitywatson',
   'if',
   'elseif',
   'else',
