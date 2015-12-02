@@ -121,7 +121,7 @@ var commands = [
   'relay select',
   'archive now',
   'extract',
-  'utilitywatson',
+  'utility',
   'if',
   'elseif',
   'else',
@@ -309,6 +309,10 @@ module.exports = function(script) {
     } else {
       skipToNextLine();
     }
+  }
+
+  if (false) {
+    console.log('watson is cool');
   }
 
   return result;
