@@ -142,7 +142,9 @@ var commands = [
   'collect prefetch items',
   'execute prefetch plug-in',
   'end prefetch block',
-  'exit'
+  'exit',
+  'quarantine',
+  'agent interface'
 ];
 
 module.exports = function(script) {
